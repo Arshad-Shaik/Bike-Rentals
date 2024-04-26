@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+<link rel="shortcut icon" href="logo.png">
+
+<title>pick and drop</title>
+<style>
+    body{
+        background-color: black;
+    }
+    .card-container {
+        position: relative;
+        display: inline-block;
+        margin: 20px;
+     }
+    .card {
+        width: 500px;
+        height: 400px;
+        border-radius: 20px;
+        transition: transform 0.3s;
+    }
+    .card-container:hover .card {
+        transform: translateY(-10px);
+        filter: blur(5px); /* Blur the image on hover */
+    }
+    .textcontent {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+        transform: translateY(100%);
+        transition: transform 0.3s;
+        color: white; /* Text color */
+    }
+    .card-container:hover .textcontent {
+        transform: translateY(0%);
+    }
+     
+    .textcontent {
+        /* Add the following lines to display the information on the image when the cursor is placed on it */
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.3s, opacity 0.3s;
+    }
+    .card-container:hover .textcontent {
+        visibility: visible;
+        opacity: 1;
+    }
+   h2{
+    color: white;
+   }
+  /* Adjusted styling for the search bar */
+.searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40px; /* Adjusted height */
+    padding-right: 20px;
+    border: 2px solid black; /* Added a border */
+    border-radius: 20px; /* Rounded corners */
+}
+
+/* Styles for the search input */
+.searchbar input {
+    width: 200px;
+    border: none;
+    outline: none;
+    height: 50%;
+    padding: 5px; /* Added padding for a more comfortable input area */
+}
+
+/* Styles for the magnifying glass icon */
+.glass {
+    font-size: 24px;
+    color: black;
+    margin-left: -20px; /* Adjusted margin */
+    cursor: pointer;
+}
+.glass:hover {
+    color: orange;
+}
+/* Rest of your styles... */
+.a2 {
+  background-color: black;
+  border: white;
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  font-size: 14px; /* Reduced font size */
+  position: relative;
+  overflow: hidden;
+}
+
+.a2:hover {
+  background: orange;
+  box-shadow: 0 0 5px orange,
+              0 0 25px orange,
+              0 0 50px orange,
+              0 0 200px orange;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.a2:nth-child(1) {
+  filter: hue-rotate(270deg);
+}
+
+.a2:nth-child(2) {
+  filter: hue-rotate(110deg);
+}
+
+.a2 span {
+  position: absolute;
+  display: block;
+  color: white; /* Set the text color to white */
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  .nav-items{
+    height: 60px;
+    line-height: 50px;
+   padding-left: 10px;
+   padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#left-nav{
+    color: white;
+}
+#left-nav img{
+    border-radius: 5px;
+}
+input{
+    width: 50px;
+}
+</style>
+</head>
+<body>   
+    <div>
+        <nav class="nav-items">
+            <div id="left-nav"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UVrwXr_BAtzu41Wl7FHk5cxwHYMaVptg2s8KDFSYKAg_8c9FqSkq1tx1uAs_S13ydaBouU9g-Ms6CqVtuiSEfJivE-4e-CUrAoiVJfNcZ2ftKf6VAw_NCEtKawBBeyY79vlzPHl0C78VIqzCEryMzsSxV-Ce5Fs9t04kBKhOqKskSuiBbbOSYvvJMeE/s320/logo.png" alt="no img" style="width:50px"> </div>
+           <div class="right-nav">
+            <a class="nav-item" href="home.html"><button class="a2"><span class="fa-solid fa-house"><br><br>
+Home </span> </button> </a> 
+          <a class="nav-item" href="bikes.html"><button class="a2"><span class="fa-solid fa-motorcycle"><br><br>
+            Bikes
+            </span></button> </a>       
+         <a class="nav-item" href="cars.html"><button class="a2"><span class="fa-solid fa-car"><br><br>
+            Cars
+            </span></button></a>
+            <a class="nav-item" href="pickdrop.html"><button class="a2"><span class="fa-solid fa-map-pin"><br><br>
+                Pick&Drop
+                            </span></button></a>
+         <a class="nav-item" href="contact.html"><button class="a2"><span class="fa-solid fa-phone"><br><br>
+            ContactUs
+            </span></button></a>
+            <a class="nav-item" href="about.html"><button class="a2"><span class="fa-solid fa-person"><br><br>
+                AboutUs
+                </span></button></a>
+               
+    </div>
+   </div><br><br>
+        <div class="searchbar">
+        <input placeholder="Search...." id="find" name="" type="text" onkeyup="search()"><i class="gg-search glass"></i>
+</div>
+    <h2>Bikes </h2>
+    <div class="card-container">
+        <img class="card" src="https://bd.gaadicdn.com/processedimages/ducati/streetfighter-v2/640X309/streetfighter-v2630c515f9b05e.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUCATI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>
+         </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://5.imimg.com/data5/SELLER/Default/2022/3/AN/FH/IZ/149905135/used-2018-ducati-sportbike-motorcycle-panigale-v4.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUCATI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.news18.com/ibnkhabar/uploads/2022/06/Intruder-150.jpg" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.91wheels.com//assets/b_images/main/models/profile/profile1661766904.jpg" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.hindustantimes.com/auto/img/2021/02/03/600x338/BS6_compliant_Suzuki_Gixxer_SF_MotoGP_edition_1583310111748_1612340308511.JPG" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI ZIXER</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://news.maxabout.com/wp-content/uploads/2021/10/200cc-TVS-Adventure-Motorcycle.jpg" alt="no img">
+        <div class="textcontent">
+            <p>APACHE</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://bd.gaadicdn.com/processedimages/tvs/apache-rtr-200-4v-2016-2017/640X309/v_apache-rtr-200-4v-2016-2017-abs1520428098.jpg" alt="no img">
+        <div class="textcontent">
+            <p>APACHE</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://bd.gaadicdn.com/processedimages/kawasaki/ninja-400/640X309/ninja-40062b2b760470d9.jpg" alt="no img">
+        <div class="textcontent">
+            <p>NINJA KAWASHI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.hindustantimes.com/auto/img/2023/03/28/original/Jawa_42_1679985854492.jpg" alt="no img">
+        <div class="textcontent">
+            <p>JAWA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://media.zigcdn.com/media/content/2022/Sep/cover_6336d44717f31.jpg" alt="no img">
+        <div class="textcontent">
+            <p>JAWA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://content3.jdmagicbox.com/comp/vapi/m6/9999p2632.2632.220211232312.h7m6/catalogue/jawa-motorcycles-vapi-industrial-estate-vapi-motorcycle-dealers-3g4o4rbz26.jpg" alt="no img">
+        <div class="textcontent">
+            <p>JAWA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://content2.kawasaki.com/ContentStorage/CKM/ProductTrimGroup/73/77b27244-4868-4e35-88c5-fd1142e01c11.jpg?w=750" alt="no img">
+        <div class="textcontent">
+            <p>KAWASHI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://i.pinimg.com/originals/d1/19/f4/d119f42e5aa579a70be71fffe064f613.jpg" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL ENDFIELD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div> 
+    <div class="card-container">
+        <img class="card" src="https://www.bigbikerentals.com/wp-content/uploads/2020/12/6fc23f391c9906756f70011f771b5a66-e1607773795270.png" alt="no img">
+        <div class="textcontent">
+            <p>HARLY DAVIDSON</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://www.cartoq.com/wp-content/uploads/2018/05/harley-davidson.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HARLY DAVIDSON</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://images.news18.com/ibnlive/uploads/2017/10/2018-Harley-Davidson-Fat-Bob-Softail.jpg?im=FitAndFill,width=1200,height=900" alt="no img">
+        <div class="textcontent">
+            <p>HARLY DAVIDSON</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://5.imimg.com/data5/SELLER/Default/2022/12/LQ/SO/DL/45461290/yamaha-yzf-r15-v-4-0-bike.jpeg" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://down-my.img.susercontent.com/file/f077251929bfaf93df7f163f47e02927" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA MT15</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://images.news18.com/ibnkhabar/uploads/2022/06/Yamaha-MT15-V2.jpg" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA MT15</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://www.motorbeam.com/wp-content/uploads/Honda-CB300F-Price-Mat-Marvel-Blue.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://bikesales.pxcrush.net/bikes/private/752stb41wyklo4q92t9c1qmmg.jpg?pxc_method=gravityfill&pxc_bgtype=self&pxc_size=720,480" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>  
+    <div class="card-container">
+        <img class="card" src="https://qph.fs.quoracdn.net/main-qimg-e06bbe0babca581c5198ee113b08b01a-lq" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL ENDFIELD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://2.imimg.com/data2/KP/CP/IMFCP-4493571/product-12.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HERO HONDA HUNK</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://somosmoto.pe/images/models/gallery/hero-hunk-160r-2022-gallery-a6b240.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HERO HONDA </p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://static-01.daraz.com.bd/p/08da88859b19c9c35d9e3579b9c00be1.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HERO HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.thrustzone.com/wp-content/uploads/2018/05/Hero-XF3R-Concept.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HERO HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.91wheels.com//assets/b_images/main/models/profile/profile1661763113.jpg?width=360&q=60?w=750&q=60" alt="no img">
+        <div class="textcontent">
+            <p>PULSAR</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.carandbike.com/bike-images/big/bajaj/v15/bajaj-v15.jpg?v=43" alt="no img">
+        <div class="textcontent">
+            <p>BAJAJ</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.hindustantimes.com/auto/img/2021/10/19/1600x900/Pulsar-NS-200-1_1627628161988_1634635747065.jpg" alt="no img">
+        <div class="textcontent">
+            <p>PULSAR</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.mototechindia.com/wp-content/uploads/2022/06/pulsar-350.jpg" alt="no img">
+        <div class="textcontent">
+            <p>BAJAJ</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2022/07/06/188721-tvs-ronin-website.jpg?itok=G2d8HJE4" alt="no img">
+        <div class="textcontent">
+            <p>TVS</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/TVS-Apache-RTR-165-RP-070120221300.jpg&w=872&h=578&q=75&c=1" alt="no img">
+        <div class="textcontent">
+            <p>TVS</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.moneycontrol.com/static-mcnews/2019/10/TVS-Apache-RTR-200-4V-with-SmartXonnect-technology.jpg?impolicy=website&width=1600&height=900" alt="no img">
+        <div class="textcontent">
+            <p>TVS</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://qph.fs.quoracdn.net/main-qimg-e06bbe0babca581c5198ee113b08b01a-lq" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL ENDFIELD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/ExtraImages/20180314041644_pax4.jpg" alt="no img">
+        <div class="textcontent">
+            <p>PASSION PRO</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.bmwmotorcycle.com/wp-content/uploads/2021/04/canvas-2021-r-nine-t-pure.jpg" alt="no img">
+        <div class="textcontent">
+            <p>BMW</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>
+        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://4kwallpapers.com/images/walls/thumbs_2t/2391.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HARLY DAVIDSON</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    
+    <div class="card-container">
+        <img class="card" src="https://gomechanic.in/blog/wp-content/uploads/2021/10/Jawa-Perak-Bobber-1000x704.jpg" alt="no img">
+        <div class="textcontent">
+            <p>JAWA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    
+    <div class="card-container">
+        <img class="card" src="https://www.bikebound.com/wp-content/uploads/2018/10/Royal-Enfield-Himalayan-Street-Tracker-16.jpeg" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    
+    <div class="card-container">
+        <img class="card" src="https://wallpapercave.com/wp/wp3582940.jpg" alt="no img">
+        <div class="textcontent">
+            <p>KAWASHI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://s1.cdn.autoevolution.com/images/news/ducari-x-diavel-is-a-dragster-kind-of-sport-cruiser-171880_1.jpg" alt="no img">
+        <div class="textcontent">
+            <p>Title</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://bd.gaadicdn.com/upload/modellogo/649bc0cf4b3f0.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUCATI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20190729044945_Bajaj-Dominar-400.jpg&w=700&q=90&c=1" alt="no img">
+        <div class="textcontent">
+            <p>TRIMUPH</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://static.toiimg.com/photo/80452572.cms" alt="no img">
+        <div class="textcontent">
+            <p>DOMINAR</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://i0.wp.com/www.asphaltandrubber.com/wp-content/uploads/2019/11/2020-Aprilia-RS-660-13.jpg?fit=3307%2C2362&ssl=1" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://5.imimg.com/data5/SELLER/Default/2022/2/LY/QT/YF/147549471/2016-yamaha-yzf-r3.jpg" alt="no img">
+        <div class="textcontent">
+            <p>APRILIA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3RtJTIwYmlrZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://thumbs.dreamstime.com/b/beautiful-ktm-duke-sexy-black-white-orange-92257122.jpg" alt="no img">
+        <div class="textcontent">
+            <p>KTM</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://c4.wallpaperflare.com/wallpaper/188/600/40/the-sky-black-motorcycle-supersport-wallpaper-preview.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUKE</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imgd.aeplcdn.com/664x374/n/cw/ec/58025/pulsar-ns-right-front-three-quarter-6.jpeg?isig=0&q=75" alt="no img">
+        <div class="textcontent">
+            <p>R15</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.rushlane.com/wp-content/uploads/2022/06/2022-royal-enfield-meteor-350-bobber-launch-price-2-1200x675.jpg" alt="no img">
+        <div class="textcontent">
+            <p>PULSAR</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://ultimatemotorcycling.com/wp-content/uploads/2023/04/2023-royal-enfield-hunter-350-first-look-9.webp" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://gaadiwaadi.com/wp-content/uploads/2021/03/Royal-Enfield-350-modified-lowrider-6-1068x712.jpg" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/ExtraImages/20200730063629_2020-Honda-CBR1000RR-R-Fireblade-SP.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.iamabiker.com/wp-content/uploads/2016/05/MV-Agusta-F4-India.jpg" alt="no img">
+        <div class="textcontent">
+            <p>AUGUSTA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://c4.wallpaperflare.com/wallpaper/841/705/100/yamaha-yzf-r1-black-yamaha-motorcycle-wallpaper-preview.jpg" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://ridermagazine.com/wp-content/uploads/2017/03/BMW-R1200GS-xDrive-Hybrid-beauty.jpg" alt="no img">
+        <div class="textcontent">
+            <p>BMW</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.ctfassets.net/3rzrfv8xs9vq/6QJn08Q0VnvmTCuDtGjjjC/fa74534550f4a4fb4285db4d04574f61/Image1_1600x1000.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUCATI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://i.pinimg.com/736x/d8/b4/5f/d8b45f60fe73fce71502ff22618ea7b8--scrambler-motorcycle-triumph-scrambler.jpg" alt="no img">
+        <div class="textcontent">
+            <p>TRIH]UMPH</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <h2>Cars Collections</h2>
+    <div class="card-container">
+        <img class="card" src="https://etimg.etb2bimg.com/photo/75738529.cms" alt="no img">
+        <div class="textcontent">
+            <p>FORD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cars.tatamotors.com/images/nexon/nexon-mobile-price-overlay.png" alt="no img">
+        <div class="textcontent">
+            <p>TATA NEXON</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://static.tnn.in/photo/msid-96413999,width-100,height-200,resizemode-75/96413999.jpg" alt="no img">
+        <div class="textcontent">
+            <p>TATA PUNCH</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cars.tatamotors.com/images/dark/altroz/ext/premium-cosmo-dark-colour.jpg" alt="no img">
+        <div class="textcontent">
+            <p>TATA ALTROZ</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.topgear.com/sites/default/files/cars-car/image/2023/06/286145_Volvo_V90_Recharge_Plug-in_Hybrid_T6_AWD_Inscription.jpg" alt="no img">
+        <div class="textcontent">
+            <p>VOLVO</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://lh3.googleusercontent.com/P-K3Htd4cUHg8w3oI81X2rWjmY7kCp2CeatKAEGKPHYGhWfYbAOOKXvq0wPf5k_NlApWlH1Pze4gcFxbmbQevA" alt="no img">
+        <div class="textcontent">
+            <p>VOLVO</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/27074/civic-exterior-right-front-three-quarter-148155.jpeg?q=75&q=75" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.carlelo.com/laravel/public/uploads/UpcomingCar_img/1686049567.webp" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://d3s8goeblmpptu.cloudfront.net/mrp/honda/2022/accord/2022-honda-accord_landing-5.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.91wheels.com/assets/b_images/main/models/profile/profile1652949250.jpg" alt="no img">
+        <div class="textcontent">
+            <p>FORD</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.v3cars.com/media/model-imgs/1645602059-2022-Maruti-Nexa-Baleno.jpg" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/112721/maruti-suzuki-baleno-right-front-three-quarter0.jpeg?isig=0" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI BALENO</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://5.imimg.com/data5/TM/JB/GLADMIN-66926951/maruti-baleno-car-500x500.png" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imgd-ct.aeplcdn.com/664x415/n/cw/ec/113027/glanza-facelift-right-front-three-quarter.jpeg?isig=0&q=75" alt="no img">
+        <div class="textcontent">
+            <p>TOYOTA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Toyota/Hyryder/10910/1690544495925/front-left-side-47.jpg?imwidth=420&impolicy=resize" alt="no img">
+        <div class="textcontent">
+            <p>TOYOTA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20190118122942_Toyota%20Camry%20Hybrid%20Launch.jpg&w=700&q=90&c=1" alt="no img">
+        <div class="textcontent">
+            <p>TOYOTA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.ctfassets.net/uwf0n1j71a7j/3iBN5DAiFSBJwaR39FKDCU/6ecf0228b5d5d20759a8aafdf38d5d42/upcoming-volkswagen-cars-in-india.png" alt="no img">
+        <div class="textcontent">
+            <p>VOLKSWAGEN</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imgd.aeplcdn.com/0X0/n/cw/ec/144689/taigun-exterior-right-front-three-quarter.jpeg?isig=0&q=75" alt="no img">
+        <div class="textcontent">
+            <p>VOLKSWAGEN</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://etimg.etb2bimg.com/photo/74830414.cms" alt="no img">
+        <div class="textcontent">
+            <p>VOLKSWAGEN</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://5.imimg.com/data5/MY/HG/MY-39247500/hyundai-car.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HYUNDAI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imotorcarsearch.s3.amazonaws.com/vehicles/medium/2375097_530123_1_0aa508e76db40d14.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HYUNDAI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://groverhyundai.com/wp-content/uploads/2015/12/hyundai-verna-right-front-three-quarter7.jpeg" alt="no img">
+        <div class="textcontent">
+            <p>HYUNDAI</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Nissan/X-Trail/3372/1666087743726/front-left-side-47.jpg" alt="no img">
+        <div class="textcontent">
+            <p>NISSAN</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://etimg.etb2bimg.com/photo/76200601.cms" alt="no img">
+        <div class="textcontent">
+            <p>NISSAN</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.canstarblue.com.au/wp-content/uploads/2017/01/Niss-Altima-new-e1484715620246.jpg" alt="no img">
+        <div class="textcontent">
+            <p>NISSAN</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Renault/KWID/10081/1683289602695/front-left-side-47.jpg" alt="no img">
+        <div class="textcontent">
+            <p>RENAULT</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.hindustantimes.com/auto/img/2022/01/02/600x338/WhatsApp_Image_2021-08-18_at_12.01.14_PM_(1)_1629288252584_1641105440421.jpeg" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.motoroids.com/wp-content/uploads/2022/09/Sonet-X-line-1200x684.jpg" alt="no img">
+        <div class="textcontent">
+            <p>KIA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://static.langimg.com/thumb/85587003/navbharat-times-85587003.jpg?width=540&resizemode=3" alt="no img">
+        <div class="textcontent">
+            <p>HYUNDIA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://gumlet.assettype.com/evoindia%2Fimport%2F2016%2F11%2FFront.jpg" alt="no img">
+        <div class="textcontent">
+            <p>RENAULT</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cars.tatamotors.com/images/dark/m-altroz-home.jpg" alt="no img">
+        <div class="textcontent">
+            <p>ALTROZ</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.mad4wheels.com/img/free-car-images/mobile/18197/jeep-compass-4xe-limited-2020-592601.jpg" alt="no img">
+        <div class="textcontent">
+            <p>JEEP</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mahindra_Thar_Photoshoot_At_Perupalem_Beach_%28West_Godavari_District%2CAP%2CIndia_%29_Djdavid.jpg/800px-Mahindra_Thar_Photoshoot_At_Perupalem_Beach_%28West_Godavari_District%2CAP%2CIndia_%29_Djdavid.jpg" alt="no img">
+        <div class="textcontent">
+            <p>THAR</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://static.toiimg.com/photo/msid-92059340/92059340.jpg" alt="no img">
+        <div class="textcontent">
+            <p>XUV</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://gaadiwaadi.com/wp-content/uploads/2021/10/toyota-land-cruiser-1068x601.jpeg" alt="no img">
+        <div class="textcontent">
+            <p>TOYOTA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.drivespark.com/img/2020/12/mahindra-alturas-g4-front-design-1607769522.jpg" alt="no img">
+        <div class="textcontent">
+            <p>MAHINDRA</p>
+            <p> 1,100rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="p.html" style="color:white; text-decoration: none">Book</a></button>        </div>
+    </div>
+    <!----javascript-->
+    <script type="text/javascript">
+        function search() {
+            let filter = document.getElementById('find').value.toUpperCase();
+            let items = document.querySelectorAll('.card-container'); // Use correct selector here
+    
+            for (var i = 0; i < items.length; i++) {
+                let textContent = items[i].querySelector('p').textContent.toUpperCase(); // Corrected the selector here
+    
+                if (textContent.indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

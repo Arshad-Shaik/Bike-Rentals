@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="shortcut icon" href="logo.png">
+
+<link rel="shortcut icon" href="logo.png">
+
+    <style>
+        body{
+           background-color: black;
+            color: white;
+        }
+       .ak{
+
+        padding-left: 400px;
+       }
+       button{
+        width: 360px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: orange;
+        box-shadow: 0 0 10px black;
+       }
+       button:hover{
+        background-color: orange;
+    box-shadow: 0 0 15px orange, 0 0 25px orange, 0 0 35px orange;
+    color: white;
+    border: white;
+    cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+<center><h1>CAR BOOKING FORM</h1></center>    
+<center><h3>To reserve the ride. Please complete and submit the booking form.</h3></center>
+    <hr>
+    <form action="http://127.0.0.1:5000/mbooking" method="POST" class="ak" name="ak1" onsubmit="return ValidateForm()">
+        Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" placeholder="Enter your Name" required><br><br>
+        Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" placeholder="Enter your Email" required><br><br>
+        Phone : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="phone" placeholder="Enter your Mobile Number" required><br><br>
+        Departure Date/Time :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="ddt" placeholder="Enter your Departure Date/Time" required><br><br>
+        Return Date/Time : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rdt" placeholder="Enter your Return Date/Time" required><br><br>
+        Pickup Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="pick" placeholder="Pickup Address" required><br><br>
+        Destination Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="destination" placeholder="Destination Address" required><br><br>
+     <button type="submit">Submit</button>
+    
+</form>
+<hr>
+<script type="text/javascript">
+    function validateForm(){
+        let name = document.forms['ak1']['name'].value;
+        let email = document.forms['ak1']['email'].value;
+        let phone = document.forms['ak1']['phone'].value;
+        let departuredatetime = document.forms['ak1']['ddt'].value;
+        let returndatetime = document.forms['ak1']['rdt'].value;
+        let pickupaddress = document.forms['ak1']['pick'].value;
+        let destinationaddress = document.forms['ak1']['destination'].value;
+
+        if( name == ""){
+            alert("enter your name");
+            return false;
+        }
+        
+        if( email == ""){
+            alert("enter your email");
+            return false;
+        }
+        
+        if( phone == ""){
+            alert("enter your phone");
+            return false;
+        }
+        
+        if( departuredatetime == ""){
+            alert("enter your departuredatetime");
+            return false;
+        }
+        
+        if( returndatetime == ""){
+            alert("enter your returndatetime");
+            return false;
+        }
+        
+        if( pickupaddress == ""){
+            alert("enter your pickupaddress");
+            return false;
+        }
+        
+        if( destinationaddress == ""){
+            alert("enter your destinationaddress");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

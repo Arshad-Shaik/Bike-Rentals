@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="shortcut icon" href="logo.png">
+
+<style>
+    .side{
+        margin-top: 50px;
+        padding-left: 50px;
+        float: left;
+        width: 45%;
+    }
+    .matter{
+        float: right;
+        width: 50%;
+    }
+    button{
+        padding-left: 20px;
+        width: 320px;
+        border-radius: 20px;
+        height: 50px;
+        background-color: orange;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: green;
+        color: white;
+    }
+    .matter img{
+        width: 200px;
+        margin-right: 200px;
+        height: 200px;
+        border-radius: 100%;
+        margin-top: 50px;
+    }
+  
+</style>
+
+</head>
+<body>
+  
+    <div class="contaier">
+       
+        <div class="side">
+            <h1>Hello!</h1>
+            <form  action="http://127.0.0.1:5000/signup" method="post" name="sf" onsubmit="return validateForm()">
+                Full Name: <input type="text" required name="fn" placeholder="John Doe"><br><br>
+                Email Address: <input type="email" required name="emailid" placeholder="example@gmail.com"><br><br>
+                Password: <input type="password" required name="password" id="pass" placeholder="Password"><input id="check" type="checkbox">
+                <br><br>
+                Confirm Password: <input type="password" required name="confirmpassword" placeholder="Confirm Password"><br><br>
+                <button type="submit">Signup</button>
+                
+            </form>
+         </div>
+        <div class="matter">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UVrwXr_BAtzu41Wl7FHk5cxwHYMaVptg2s8KDFSYKAg_8c9FqSkq1tx1uAs_S13ydaBouU9g-Ms6CqVtuiSEfJivE-4e-CUrAoiVJfNcZ2ftKf6VAw_NCEtKawBBeyY79vlzPHl0C78VIqzCEryMzsSxV-Ce5Fs9t04kBKhOqKskSuiBbbOSYvvJMeE/s320/logo.png" alt="no img">
+            <p><b>Modern Moto</b></p>
+            <p><b>Which Provides the Reasonable Sports Bikes For Rent</b></p>
+            <p><b></b></p>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var fullName = document.forms["sf"]["fn"].value;
+            var email = document.forms["sf"]["emailid"].value;
+            var password = document.forms["sf"]["password"].value;
+            var confirmPassword = document.forms["sf"]["confirmpassword"].value;
+
+            if (fullName === "") {
+                alert("Please enter the Full Name");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Please enter Email Id");
+                return false;
+            }
+
+            if (password === "") {
+                alert("Please enter Password");
+                return false;
+            }
+
+            if (confirmPassword === "") {
+                alert("Please enter the Confirm Password");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            // If all validations pass, redirect to the main page
+           // window.location.href = "mainpagebike.html";
+           // return false;
+        }
+        var check = document.getElementById("check");
+        var pass = document.getElementById("pass");
+
+        check.onclick = togglePassword;
+
+        function togglePassword() {
+            if (check.checked) {
+                pass.type = "text";
+            } else {
+                pass.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>

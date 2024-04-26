@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Bike Agreement</title>
+<style>
+  body{
+    background-image: url('https://4kwallpapers.com/images/wallpapers/harley-davidson-3840x2780-10034.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    color: white;
+}
+h1 span{
+  
+    color: #010d13;
+    text-shadow: 0 0 10px rgb(7, 0, 0), 0 0 20px #010b11, 0 0 30px #010911;
+  }
+  .neon-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #776969;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.neon-button:hover {
+      background-color: #00ff00;
+    box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00, 0 0 35px #00ff00;
+}
+.center-button{
+position: fixed;
+bottom: 5px;
+right: 790px;
+}
+ </style>
+</head>
+<body>
+  <center><h1>Bicycle Rental Agreement</h1></center>
+  <table>
+    <div class="a1">
+    <form  action="http://127.0.0.1:5000/agreement" method="post" name="rf" onsubmit="return validateForm()" enctype="multipart/form-data">
+      <tr><td> Name of Renter:</td> <td><input type="text" name="name" placeholder=" Name" id="n" required>
+<tr><td> Phone Number:</td><td> <input type="number" name="phone" placeholder="Borrower Phone Number" id="p" required><br></td></tr>
+<tr><td> Email:</td><td>  <input type="emailid" name="email" placeholder="example@example.com"  id="e" required></td></tr>
+<tr><td>Gender:</td><td> <select name="select" id="g">
+  <option value="Gender">Gender</option>
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+</select> </td></tr>
+ <tr><td>Date of Birth:</td><td> <input type="date" name="date" id="d" required></td></tr>
+<tr><td>Address:</td><td> <input type="text" name="address" placeholder="Street Address" id="a" required><br>
+  <input type="text" name="address" placeholder="Street Address Line 2" required><br>
+  <input type="text" name="address" placeholder="City" required><br>
+  <input type="text" name="address" placeholder="State / Province" required><br>
+  <input type="text" name="address" placeholder="Postal / Zip Co..." required><br>
+  <input type="text" name="address" placeholder="Country" required><br></td></tr>
+  <tr>
+    <td>Type of Bikes:</td>
+    <td>
+      <select name="select" id="s">
+        <option value="Select">Select</option>
+      <option value="Adult Trike">Adult Trike</option>
+      <option value="Mountain Bike">Mountain Bike</option> 
+      <option value="Commuting Bike">Commuting Bike</option> 
+      <option value="Road Touring">Road Touring</option>
+      <option value="BMX/Trick Bike">BMX/Trick Bike</option> 
+      <option value="Road Bike">Road Bike</option> 
+      <option value="Folding Bike">Folding Bike</option> 
+      <option value="E-Bike">E-Bike</option>
+      <option value="Cyclocross Bike">Cyclocross Bike</option> 
+      <option value="Track Bike/Fixed Gear">Track Bike/Fixed Gear</option> 
+      <option value="Light Touring">Light Touring</option>
+      <option value="Hybrid/Comfort Bike">Hybrid/Comfort Bike</option> 
+      <option value="Beach Cruiser">Beach Cruiser</option> 
+     <option value="Recumbent"></option>
+  
+</select>
+</td>
+</tr>
+<tr><td>Helmet: </td> <td>
+  <input type="radio" name="helmet" value="I have my own"  id="h1" required>I have my own
+  <input type="radio" name="helmet" value="Small " id="h2" required>Small 
+  <input type="radio" name="helmet" value="Medium"  id="h3" required>Medium 
+  <input type="radio" name="helmet" value="Large" id="h4" required>Large</td></tr>
+<tr><td>Rental Date:</td> <td>
+  <input type="date" name="rental2" id="r" required></td></tr>
+<tr><td>Return Date - Time Back: </td> <td>
+  <input type="date" name=" date" id="rd" required>
+  <input type="text" name="meena"  placeholder="Time Bak"  id="tb" required><br></td></tr>
+<tr><td>Total Rental Amount: </td> <td>
+  <input type="text" name=" rental " placeholder="Total Rental Amount"  id="tra" required></td></tr>
+<tr><td>Security Deposit: </td><td>
+  <input type="text" name="security " placeholder="Security Deposit ($)" id="sd" required></td></tr>
+<tr><td>Locks & Helmets: </td> <td>
+  <input type="text" name="locks" placeholder="Locks & Helmets" id="lh" required></td></tr>
+<tr><td>Additional Accessories:</td> <td>
+  <input type="text" name="additional " placeholder="Locks & Helmets" id="aa" required></td></tr><br>
+  
+<tr><td>Aadhar Number:</td> <td>
+  <input type="number" name="aadhar" id="an" required></td></tr>
+<tr><td>Licence: </td> <td>
+  <input type="file" name="licence" id="l" required><br></td></tr><br><br>
+  <div class="center-button"><br><br>
+<button  type="submit" class="neon-button" >Submit</button>
+</div> 
+</div>
+</table>
+</form> 
+<script>
+ function validateForm(){
+  let name = document.forms['rf']['name'].value;
+  let phone = document.forms['rf']['phone'].value;
+  let email = document.forms['rf']['email'].value;
+  let gender = document.forms['rf']['gender'].value;
+  let dateofbirth = document.forms['rf']['date'].value;
+  let address = document.forms['rf']['address'].value;
+  let typeofbikes = document.forms['rf']['select'].value;
+  let helmet = document.forms['rf']['helmet'].value;
+  let rentaldate = document.forms['rf']['rental2'].value;
+  let returndate = document.forms['rf']['date1'].value;
+  let totalrentalamount = document.forms['rf']['rental'].value;
+  let securitydeposit = document.forms['rf']['security'].value;
+  let lockshelmets = document.forms['rf']['locks'].value;
+  let additinalaccessories = document.forms['rf']['additional'].value;
+  let aadharnumber = document.forms['rf']['aadhar'].value;
+  let licence = document.forms['rf']['licence'].value;
+  
+  if(name === ""){
+    alert("Please enter your Name");
+    return false;
+  }
+  
+  if(phone === ""){
+    alert("Please Enter Your Phone number");
+    return false;
+  }
+  if(email === ""){
+    alert('Enter Email');
+    return false;
+  }
+  if(gender === ""){
+    alert ('Select Gender');
+    return false;
+  }
+  if(dateofbirth === ""){
+    alert ("Date of Birth is Required");
+    return false;
+  }
+  if(address === ""){
+    alert("Address is Required") ;
+    return false;
+  }
+  if(typeofbikes === ""){
+    alert("Bike Type is required");
+    return false;
+  }
+  if(helmet === ""){
+    alert("Helmet type is required");
+    return false;
+  }
+  if(rentaldate === ""){
+    alert("Rental Date is required");
+    return false;
+  }
+  if(totalrentalamount === ""){
+    alert("Total Rental Amount is required");
+    return false;
+  }
+  if(securitydeposit === ""){
+    alert("Security Deposit amount is required");
+    return false;
+  }
+  if(lockshelmets === ""){
+    alert("Locks and Shelmets are required");
+    return false;}
+  }
+  if(additinalaccessories === ""){
+    alert("Additional Accessories are required");
+    return false;
+  }
+  if(aadharnumber === ""){
+    alert("Aadhaar Number is required");
+    return false;
+  }
+  if(licence === ""){
+    alert("Licence number is required");
+    return false;
+  }
+
+</script>
+</body>
+</html>

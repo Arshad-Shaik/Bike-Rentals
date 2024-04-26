@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="logo.png">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<title>bikes </title>
+<style>
+    body{
+        background-color:black;
+        color:white;
+    }
+    .card-container {
+        position: relative;
+        display: inline-block;
+        margin: 20px;
+     }
+    .card {
+        width: 500px;
+        height: 400px;
+        border-radius: 20px;
+        transition: transform 0.3s;
+    }
+    .card-container:hover .card {
+        transform: translateY(-10px);
+        filter: blur(5px); /* Blur the image on hover */
+    }
+    .textcontent {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+        transform: translateY(100%);
+        transition: transform 0.3s;
+        border-radius: 20px;
+        color: white; /* Text color */
+    }
+    .card-container:hover .textcontent {
+        transform: translateY(0%);
+    }
+     
+    .textcontent {
+        /* Add the following lines to display the information on the image when the cursor is placed on it */
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.3s, opacity 0.3s;
+    }
+    .card-container:hover .textcontent {
+        visibility: visible;
+        opacity: 1;
+    }
+   h2{
+    color: white;
+   }
+   .searchbar{
+    border: 5px;
+    height: 30px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding-right: 50px;
+   }
+   input{
+    border: none;
+    outline: none;
+   }
+   .glass {
+    /* Define the styles for the magnifying glass icon */
+    font-size: 24px;
+    margin-left: -30px; /* Adjust the margin to align the icon */
+    color: black;
+    position: relative;
+    top: 7px; /* Adjust the vertical position of the icon */
+}
+
+.glass:hover {
+    color: orange;
+    cursor: pointer;
+}
+.searchbar{
+    line-height: 10px;
+    border: 5px solid black;
+    float: right;
+}
+body{
+    background-color: black;
+}
+.nav-items{
+    height: 60px;
+    line-height: 50px;
+   padding-left: 10px;
+   padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#left-nav{
+    color: white;
+}
+
+.a2 {
+  background-color: black;
+  border: white;
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  font-size: 14px; /* Reduced font size */
+  overflow: hidden;
+}
+
+.a2:hover {
+  background: orange;
+  box-shadow: 0 0 5px orange,
+              0 0 25px orange,
+              0 0 50px orange,
+              0 0 200px orange;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.a2:nth-child(1) {
+  filter: hue-rotate(270deg);
+}
+
+.a2:nth-child(2) {
+  filter: hue-rotate(110deg);
+}
+
+.a2 span {
+  position: absolute;
+  display: block;
+  color: white; /* Set the text color to white */
+  top: 50%;
+  cursor: pointer;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#left-nav img{
+    border-radius: 5px;
+}
+.card-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    padding-left: 20px;
+ }
+.card {
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+.card-container:hover .card {
+    transform: scale(1.1);
+    /* Blur the image on hover */
+}
+</style>
+</head>
+<body>   
+    <div>
+        <nav class="nav-items">
+            <div id="left-nav"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UVrwXr_BAtzu41Wl7FHk5cxwHYMaVptg2s8KDFSYKAg_8c9FqSkq1tx1uAs_S13ydaBouU9g-Ms6CqVtuiSEfJivE-4e-CUrAoiVJfNcZ2ftKf6VAw_NCEtKawBBeyY79vlzPHl0C78VIqzCEryMzsSxV-Ce5Fs9t04kBKhOqKskSuiBbbOSYvvJMeE/s320/logo.png" alt="no img" style="width:50px"></div>
+           <div class="right-nav">
+            <a class="nav-item" href="home.html"><button class="a2"><span class="fa-solid fa-house"><br><br>
+         Home </span> </button>  </a>
+          <a class="nav-item" href="bikes.html"><button class="a2"><span class="fa-solid fa-motorcycle"><br><br>
+            Bikes
+            </span></button> </a>       
+         <a class="nav-item" href="cars.html"><button class="a2"><span class="fa-solid fa-car"><br><br>
+            Cars
+            </span></button></a>
+            <a class="nav-item" href="pickdrop.html"><button class="a2"><span class="fa-solid fa-map-pin"><br><br>
+                Pick&Drop
+                            </span></button></a>
+         <a class="nav-item" href="contact.html"><button class="a2"><span class="fa-solid fa-phone"><br><br>
+            ContactUs
+            </span></button></a>
+            <a class="nav-item" href="about.html"><button class="a2"><span class="fa-solid fa-person"><br><br>
+                AboutUs
+                </span></button></a>
+               
+    </div>
+   </div><br><br><br>
+        <div class="searchbar">
+        <input placeholder="Search...." id="find" name="" type="text" onkeyup="search()"><i class="gg-search glass"></i>
+</div><br><br>
+    <h2>Bikes Collections</h2>
+   
+    <div class="card-container">
+        <img class="card" src="https://www.bmwmotorcycle.com/wp-content/uploads/2021/04/canvas-2021-r-nine-t-pure.jpg" alt="no img">
+        <div class="textcontent">
+            <p>BMW</p>
+            <p>One Day: 3,000rs</p>
+            <p>One Week: 21,000rs</p>
+            <p>One Month: 90,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://4kwallpapers.com/images/walls/thumbs_2t/2391.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HARLY DAVIDSON</p>
+            <p>One Day: 1,899rs</p>
+            <p>One Week: 13,293rs</p>
+            <p>One Month: 56,970rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <img class="card" src="https://gomechanic.in/blog/wp-content/uploads/2021/10/Jawa-Perak-Bobber-1000x704.jpg" alt="no img">
+        <div class="textcontent">
+            <p>JAWA</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                </div>
+    </div>
+    
+    <div class="card-container">
+        <img class="card" src="https://www.bikebound.com/wp-content/uploads/2018/10/Royal-Enfield-Himalayan-Street-Tracker-16.jpeg" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>
+    </div>
+    
+    <div class="card-container">
+        <img class="card" src="https://wallpapercave.com/wp/wp3582940.jpg" alt="no img">
+        <div class="textcontent">
+            <p>KAWASHI</p>
+            <p>One Day: 4,008rs</p>
+            <p>One Week: 28,056rs</p>
+            <p>One Month: 1,20,240rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://s1.cdn.autoevolution.com/images/news/ducari-x-diavel-is-a-dragster-kind-of-sport-cruiser-171880_1.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUCATI</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 8,700rs</p>
+            <p>One Month: 34,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://bd.gaadicdn.com/upload/modellogo/649bc0cf4b3f0.jpg" alt="no img">
+        <div class="textcontent">
+            <p>TRIUMPH </p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 5,700rs</p>
+            <p>One Month: 32,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20190729044945_Bajaj-Dominar-400.jpg&w=700&q=90&c=1" alt="no img">
+        <div class="textcontent">
+            <p> BAJAJ DOMINOR</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 6,700rs</p>
+            <p>One Month: 36,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://static.toiimg.com/photo/80452572.cms" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA R15</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://i0.wp.com/www.asphaltandrubber.com/wp-content/uploads/2019/11/2020-Aprilia-RS-660-13.jpg?fit=3307%2C2362&ssl=1" alt="no img">
+        <div class="textcontent">
+            <p>APRILIA</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://5.imimg.com/data5/SELLER/Default/2022/2/LY/QT/YF/147549471/2016-yamaha-yzf-r3.jpg" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA R3</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        
+                    </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a3RtJTIwYmlrZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="no img">
+        <div class="textcontent">
+            <p>KTM</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://thumbs.dreamstime.com/b/beautiful-ktm-duke-sexy-black-white-orange-92257122.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUKE</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://c4.wallpaperflare.com/wallpaper/188/600/40/the-sky-black-motorcycle-supersport-wallpaper-preview.jpg" alt="no img">
+        <div class="textcontent">
+            <p>SUZUKI R3</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://imgd.aeplcdn.com/664x374/n/cw/ec/58025/pulsar-ns-right-front-three-quarter-6.jpeg?isig=0&q=75" alt="no img">
+        <div class="textcontent">
+            <p>PULSAR 200</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.rushlane.com/wp-content/uploads/2022/06/2022-royal-enfield-meteor-350-bobber-launch-price-2-1200x675.jpg" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://ultimatemotorcycling.com/wp-content/uploads/2023/04/2023-royal-enfield-hunter-350-first-look-9.webp" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://gaadiwaadi.com/wp-content/uploads/2021/03/Royal-Enfield-350-modified-lowrider-6-1068x712.jpg" alt="no img">
+        <div class="textcontent">
+            <p>ROYAL END FIELD</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://cdni.autocarindia.com/ExtraImages/20200730063629_2020-Honda-CBR1000RR-R-Fireblade-SP.jpg" alt="no img">
+        <div class="textcontent">
+            <p>HONDA</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://www.iamabiker.com/wp-content/uploads/2016/05/MV-Agusta-F4-India.jpg" alt="no img">
+        <div class="textcontent">
+            <p>AUGUSTA</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://c4.wallpaperflare.com/wallpaper/841/705/100/yamaha-yzf-r1-black-yamaha-motorcycle-wallpaper-preview.jpg" alt="no img">
+        <div class="textcontent">
+            <p>YAMAHA</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://ridermagazine.com/wp-content/uploads/2017/03/BMW-R1200GS-xDrive-Hybrid-beauty.jpg" alt="no img">
+        <div class="textcontent">
+            <p>BMW</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://images.ctfassets.net/3rzrfv8xs9vq/6QJn08Q0VnvmTCuDtGjjjC/fa74534550f4a4fb4285db4d04574f61/Image1_1600x1000.jpg" alt="no img">
+        <div class="textcontent">
+            <p>DUCATI</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+    </div>
+    <div class="card-container">
+        <img class="card" src="https://i.pinimg.com/736x/d8/b4/5f/d8b45f60fe73fce71502ff22618ea7b8--scrambler-motorcycle-triumph-scrambler.jpg" alt="no img">
+        <div class="textcontent">
+            <p>TRIUMPH</p>
+            <p>One Day: 1,100rs</p>
+            <p>One Week: 7,700rs</p>
+            <p>One Month: 33,000rs</p>
+            <button id="btn" type="button"  style="background-color: black;"><a href="agreement.html" style="color:white; text-decoration: none">Book</a></button>
+                     </div>        </div>
+                     <br><br><br><br>
+                     <h1>Accessories</h1>
+                     <div class="card-container">
+                        <a href="bikes.html">    <img class="card" src="https://cdn11.bigcommerce.com/s-9j7nxpn18v/stencil/2e501a60-edd3-013b-3f7f-5a7b66e7dc96/e/19961fb0-bc6f-013b-8bba-16ce27f158ae/img/winter-sub-banner.jpg" alt="no img">
+                        </a></div>
+                        <div class="card-container">
+                        <a href="cars.html">    <img class="card" src="https://www.store4riders.com/media/catalog/product/cache/72998e07b4001f860232736e27851ad9/r/a/raida-airwave-motorcycle-gloves-black-flu-yellow.jpg" alt="no img">
+                        </a></div>
+                        <div class="card-container">
+                            <a href="bikes.html">    <img class="card" src="https://5.imimg.com/data5/CU/BF/YZ/SELLER-21288657/casanova-leather-biker-jacket.jpg" alt="no img">
+                            </a></div>
+                            <div class="card-container">
+                                <a href="cars.html">    <img class="card" src="https://images-cdn.ubuy.co.in/63d642d1a1426b19d168ca54-cynemo-motorcycle-goggles-vintage-pilot.jpg" alt="no img">
+                                </a></div><br><br><br>
+    </div>
+    <!----javascript-->
+    <script type="text/javascript">
+        function search() {
+            let filter = document.getElementById('find').value.toUpperCase();
+            let items = document.querySelectorAll('.card-container'); // Use correct selector here
+    
+            for (var i = 0; i < items.length; i++) {
+                let textContent = items[i].querySelector('p').textContent.toUpperCase(); // Corrected the selector here
+    
+                if (textContent.indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

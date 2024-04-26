@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>BIKE</title>
+<link rel="shortcut icon" href="logo.png">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  body{
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/346/610/516/motorcycle-kawasaki-kawasaki-ninja-h2r-wallpaper-preview.jpg');
+    height:100vh;
+    background-size: cover;
+    background-position: center;
+}
+  h1{
+    color: #484848;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 7px;
+    cursor: pointer
+  }
+  h1 span{
+    transition: .2s linear
+  }
+  h1:hover span:nth-child(1){
+    margin-right: 5px
+  }
+  h1:hover span:nth-child(1):after{
+    content: "'";
+  }
+  h1:hover span:nth-child(2){
+    margin-left: 30px
+  }
+  h1:hover span{
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff, 
+                 0 0 40px #fff;
+  }   
+  button{
+    width: 100px;
+    height: 50px;
+    background-color: lightgreen;
+    border-radius: 10px;
+    color: white;
+}
+button:hover{
+    background-color: lightgreen;
+    box-shadow:  0 0 15px green, 0 0 25px green, 0 0 35px green, 0 0 45px green, 0 0 50px green;
+    border: white;
+    padding-left: 20px;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>  
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg"> 
+</audio><br><br><br><br><br>
+<h1><span>BETTER BIKES FOR</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOUR</span><br><span>BETTER JOURNEY</span></h1><br><br><br><br>
+<button class="a2" id="bikes-button">OUR BIKES</button>
+    
+<!-- Your JavaScript code -->
+<script>
+    $(document).ready(function() {
+        $("#bikes-button").click(function() {
+            window.location.href = "home";
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <title>Home</title>
+<link rel="shortcut icon" href="logo.png">
+
+        <style type="text/css">
+            body{
+                background-color: black;
+                color: white;
+            }
+            #slider{
+                overflow: hidden;
+            }
+            #slider figure{
+                position: relative;
+                width: 500%;
+                height: 500px;
+                margin: 0;
+                left: 0;
+                animation: 20s slider infinite;
+            }
+            #slider figure img{
+                float: left;
+                height: 500px;
+                width: 20%;
+            }
+            @keyframes slider{
+                0%{
+                    left: 0%;
+                }
+                20%{
+                    left: 0%;
+                }
+                25%{
+                    left: -100%;
+                }
+                45%{
+                    left: -100%;
+                }
+                50%{
+                    left: -200%;
+                }
+                70%{
+                    left: -200%;
+                }
+                75%{
+                    left: -300%;
+                }
+                95%{
+                    left: -300%;
+                }
+                100%{
+                    left: -400%;
+                }
+            }
+            .d1{
+                background-image: url('gym1.jpg');
+                background-size: cover;
+                height: 250vh;
+                background-position: center;
+                
+            }   
+            .sidebar1{
+                width: 45%;
+                float: left;
+                border-right: 1px solid #ccc;
+               
+            }   
+            .content{
+                width: 50%;
+                float: right;
+            } 
+            .clearfix{
+                display: block;
+                content: "";
+                clear: both;
+            }
+            #footer{
+                width: 100%;
+                
+                
+            }  
+            #testimonials{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+            }
+           .testimonial-heading{
+            letter-spacing: 1px;
+            margin: 30px 0px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+           }
+           .testimonial-heading h1{
+            font-size: 2.2rem;
+            font-weight: 500;
+            background-color: #202020;
+            color: white;
+            padding: 10px 20px;
+           }
+           .testimonial-heading span{
+            font-size: 1.3rem;
+            color: #252525;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+           }
+           .profile-img img{
+            width: 400px;
+            height:150px;
+           }
+           .testimonial-box-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+           }
+           .testimonial-box{
+            width: 500px;
+            box-shadow: 2px 2px 30px rgb(0,0,0,0.1);
+            padding: 20px;
+            background-color: white;
+            margin: 15px;
+            cursor: pointer;
+           }
+           .profile-img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+           }
+           .profile-img img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+           }
+           .profile{
+            display: flex;
+            align-items: center;
+           }
+           .name-user{
+            display: flex;
+            flex-direction: column;
+           }
+           .name-user strong{
+            color: #3d3d3d;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+           }
+           .name-user span{
+            color: #979797;
+            font-size: 0.8rem;
+           }
+           .reviews{
+            color: #f9d71c;
+           }
+           .box-top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+           }
+           .client-comment p{
+            font-size: 0.9rem;
+            color: black;
+           }
+           .testimonial-box:hover{
+            transform: translateY(-10px);
+            transition: all ease 0.3s;
+           }
+           .card-container {
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+            padding-left: 20px;
+         }
+        .card {
+            width: 500px;
+            height: 400px;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        .card-container:hover .card {
+            transform: scale(1.1);
+            /* Blur the image on hover */
+        }
+        .a2 {
+            background-color: black;
+            border: white;
+            border-radius: 10px;
+            width: 100px;
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .a2:hover {
+            background: orange;
+            box-shadow: 0 0 5px orange,
+                        0 0 25px orange,
+                        0 0 50px orange,
+                        0 0 200px orange;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+          }
+          
+          .a2:nth-child(1) {
+            filter: hue-rotate(270deg);
+          }
+          
+          .a2:nth-child(2) {
+            filter: hue-rotate(110deg);
+          }
+          
+          .a2 span {
+            position: absolute;
+            display: block;
+            color: white; /* Set the text color to white */
+            top: 50%;
+            font-size: 14px; /* Reduced font size */
+            cursor: pointer;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .nav-items{
+            height: 60px;
+            line-height: 50px;
+           padding-left: 10px;
+           padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 30px;
+            display: flex;
+            font-size: 14px; /* Reduced font size */
+            justify-content: space-between;
+        }
+        #left-nav{
+            color: white;
+        }
+        #left-nav img{
+            border-radius: 5px;
+        }
+        .side{
+            width: 50%;
+            float: left;
+            margin-top: 10px;
+        }
+        .matter{
+            width: 40%;
+            margin-top: 50px;
+            float: right;
+        }
+        .clearfix{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .social-media-list {
+            position: relative;
+            font-size: 22px;
+            padding-left: 10px;
+          
+            width: 100%;
+            margin: 0 auto;
+           
+          }
+          
+          .social-media-list li a {
+            color: #fff;
+          }
+          
+          .social-media-list li {
+            position: relative; 
+            display: inline-block;
+            height: 60px;
+            width: 60px;
+            margin-top: 2px;
+            line-height: 60px;
+            background-color: black;
+            cursor: pointer; 
+            transition: all .2s ease-in-out;
+          }
+          
+          .social-media-list li:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            opacity: 0;
+            transition: all .2s ease-in-out;
+          }
+          
+          .social-media-list li:hover {
+            background-color: black; 
+          }
+          
+          .social-media-list li:hover:after {
+            opacity: 1;  
+            transform: scale(1.12);
+            transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+          }
+          
+          .contact-icon2 i{
+            color: rgb(74, 74, 236);
+          }
+          .contact-icon3 i{
+            color: rgb(8, 105, 223);
+          }
+          label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color:#fff
+        }
+        input, textarea {
+            width: 450px;
+            padding: 10px;
+            margin-bottom: 15px;
+            color: white;
+            border: 1px solid #191919;
+            border-radius: 5px;
+            background-color: #565958;
+        }
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+          background-color: #565958;
+          color: #0c0c0c;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          border-radius: 50px;
+          width: 200px;
+          font-size: 20px;
+      }
+      button:hover{
+        background-color: #bbb;
+      }
+        </style>
+        <script src="https://kit.fontawesome.com/c8e4d183c2.js" crosssorigin="anonymous"></script>
+    </head>
+    <body>
+        <div>
+            <nav class="nav-items">
+                <div id="left-nav"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UVrwXr_BAtzu41Wl7FHk5cxwHYMaVptg2s8KDFSYKAg_8c9FqSkq1tx1uAs_S13ydaBouU9g-Ms6CqVtuiSEfJivE-4e-CUrAoiVJfNcZ2ftKf6VAw_NCEtKawBBeyY79vlzPHl0C78VIqzCEryMzsSxV-Ce5Fs9t04kBKhOqKskSuiBbbOSYvvJMeE/s320/logo.png" alt="no img" style="width:50px"></div>
+               <div class="right-nav">
+                <div class="navigation">
+                    <a class="nav-item" href="home.html">
+                        <button class="a2">
+                            <span class="fa-solid fa-house"><br><br> Home </span>
+                        </button>
+                    </a>
+     <a class="nav-item" href="bikes.html">
+                        <button class="a2">
+                            <span class="fa-solid fa-motorcycle"><br><br> Bikes </span>
+                        </button>
+                    </a>
+                    <a class="nav-item" href="cars.html">
+                        <button class="a2">
+                            <span class="fa-solid fa-car"><br><br> Cars </span>
+                        </button>
+                    </a>
+                    <a class="nav-item" href="pickdrop.html">
+                        <button class="a2">
+                            <span class="fa-solid fa-map-pin"><br><br> Pick&Drop </span>
+                        </button>
+                    </a>
+                    <a class="nav-item" href="contact.html">
+                        <button class="a2">
+                            <span class="fa-solid fa-phone"><br><br> ContactUs </span>
+                        </button>
+                    </a>
+                    <a class="nav-item" href="about.html">
+                        <button class="a2">
+                            <span class="fa-solid fa-person"><br><br> AboutUs </span>
+                        </button>
+                    </a>
+</div>
+                </div>
+       </div><br><br><br><br>
+        <div id="slider">
+            <figure>
+                <img src="https://www.thesmokeydogs.com/wp-content/uploads/2019/05/OT_Toma_06.04.2019-002-min-780x519.jpg" alt="no img">
+                <img src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Triumph-Bonneville-Bobber-290620211058.jpg&w=872&h=578&q=75&c=1" alt="no img">
+                <img src="https://images.hindustantimes.com/auto/img/2022/04/14/1600x900/2022-Harley-Davidson-RH975-Nightster-16-e1649816181683-1260x873_1649920857111_1649920861072.jpeg" alt="no img">
+                <img src="https://www.rushlane.com/wp-content/uploads/2020/07/bajaj-dominar-diablo-cyclops-black-33.jpg" alt="no img">
+                <img src="https://images.moneycontrol.com/static-mcnews/2019/11/Jawa-Perak-1.jpg?impolicy=website&width=1600&height=900" alt="no img">
+            </figure>
+        </div>
+        <h1>Sports Bike On Rent Highlights</h1>
+        <ul style="list-style-type:square">
+            <li>Explore  famous landmarks </li>
+                
+             <li>Feel the excitement as hop on your rented sports bikes like, FZs, Himalayan & Avenger Cruiser to explore placeses</li>
+                
+             <li>Navigate  bustling roads with ease by renting a sports bike, avoiding the frustration of traffic jams</li>
+                
+            <li>Book a Sports Bike On Rent and opt for the ideal way to experience the city's diverse lifestyle & attractions in a convenient manner</li>
+        </ul>
+       <h1> Sports Bike On Rent Overview</h1>
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Rental Location</b>: Vijayawada, India <br>
+
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Pick-up/Drop-off Location</b>: Andheri East - Kondivita Road <br>
+
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> Rental Timing</b>: 08:00 AM to 10:00 PM <br>
+
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Rental Duration</b>: 24 hours <br>
+
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Age Limit</b>: Above 20 years<br>
+   
+   <h1> About Sports Bikes On Rent:</h1>
+   <ul style="list-style-type:disc">
+
+   <li>Experience the joy of riding a rented sports bike & explore the placeses. Renting a sports bike for city/places exploration is a smart option as it gives you a high-performing experience throughout the trip. Explore the city/places at your own pace & beat the traffic with ease on your personal rented sports bike.  With a wide range of sports bikes available for rent, you can choose the perfect ride for your city/places tour.</li>
+</ul>
+
+<h1>About Sports Bike On Rent In Vijayawada:</h1>
+<ul style="list-style-type: disc" >
+<li>Experience the joy of high-performance riding with a rented sports bike , as you can feel the fun while riding these classic machines on city's open roads.</li>
+<li>Explore different location in short span, as you glide through the bustling streets & scenic routes of &nbsp;Vijayawada to reach famous landmarks.</li>
+<li>Enjoy the convineince to explore city's most famous landmarks with your rented bike.</li>
+<li>Avoid traffic by renting a sports bike in Vijayawada & enjoy the flexibility of weaving through the city's heavily operational roads.</li>
+<li>Have the freedom of your own vechile with a sports bike on rent & explore Vijayawada at your own pace without worrying about public transportation schedules.</li>
+<li>Ride through off-the-beaten-path locations which are not accessible by other modes of transfer, giving you the experience of the city that never stops.</li>
+<li>Book a sports bike on rent In Vijayawada and enjoy an exhilarating time exploring the beautiful heritage & culture of the city.</li>
+</ul>
+<h1>More Details about the Rent Bikes</h1>
+<h4> &nbsp;&nbsp;&nbsp;&nbsp;Know Before You Go for Sports Bike On Rent </h4>
+<ul style="list-style-type: square"><li>The rider needs to present a valid Driving License at the time of picking up the vehicle.</li>
+<li>At the time of pick up of vehicle Original ID proof (Voter ID/Aadhaar Card/Passport) of the rider need to be submitted.</li>
+<li>Only 1 complimentary helmet will be provided.</li>
+<li>Sufficient fuel will be provided with the vehicle to reach the nearest Petrol station</li>
+<li>The customer is liable to pay Service charges as per authorized Service Center, In case of damage to the vehicle.</li>
+<li>With one time booking you can cover 200 km with the rented two-wheeler, additional charges will apply after going above the limit.</li>
+</ul>
+<h1>Sports Bike On Rent In Vijayawada Policies</h1>
+
+<div class="sidebar1">
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;Confirmation Policy</h4>
+    <ul>
+        <li>The customer receives a confirmation voucher via email within 15 minutes of successful booking.</li>
+    </ul>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;Refund Policy</h4>
+    <ul>
+        <li>The applicable refund amount will be processed within 10 business days</li>
+    </ul>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;Booking Policy</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;In case of unforeseen weather conditions or government restrictions, certain trips or &nbsp;&nbsp;&nbsp; activities may get canceled. </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;In such cases, the operator will try their best to provide an alternate feasible.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;However, a cash refund will not be applicable for the same.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;If rescheduling requests are made 72 hours before the date of travel, no amount will &nbsp;&nbsp;&nbsp;&nbsp;be charged as rescheduling fees.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;If rescheduling requests are made between 0 to 72 hours before the date of travel, &nbsp;&nbsp;&nbsp;&nbsp;30% of the total tour cost will be charged as rescheduling fees</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;All rescheduling requests are subject to availability.</p>
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="content">
+<h4>&nbsp;&nbsp;&nbsp;Cancellation Policy</h4>
+<ul style="list-style-type: square">
+    <li>If cancellation is made 3 days or more before the date of travel, no cancellation fees will be charged.</li><br>
+    <li>If cancellation is made between 1 days to 3 days before the date of travel, 50.0% of total booking cost will be charged as cancellation fees</li><br>
+    <li>If cancellation is made within 1 days before the date of travel, total booking cost will be charged as cancellation fees</li><br>
+</ul>
+<h4>&nbsp;&nbsp;&nbsp;Payment Terms Policy</h4>
+<ul style="list-style-type: square"><li>100.0% of total tour cost will have to be paid 0 days before the date of booking</li></ul><br>
+</div>
+<div class="clearfix"></div>
+<section id="testimonials">
+    <!--heading-->
+    <div class="testimonial-heading">
+        <h1>Clients Says</h1>
+    </div>
+    <div class="testimonial-box-container">
+        <!---Box-1-->
+        <div class="testimonial-box">
+            <!----top-->
+            <div class="box-top">
+                <!---profile-->
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLZJbOO4IDNJCcu1zbxXdHUX-kCF1TBeaQAEfuhuHnt0hwv2wDVi8RZcYMA5GPUZll14lRlG0Dw75-QQt1gNg-8Z3LpJQbIVpr1kFi6e_1jcMyNltRmTAXOoubK0pfZsUAwIBFCkAIV9tuDrdWt6MK_wx2mFUmlhRExEB4R2ehNrBBIRqKI_Et5WNpXLU/s320/harly.jpg" alt="">
+                    </div>
+                    <!------name-and-username-->
+                    <div class="name-user">
+                        <strong>Touseeq Ijaz</strong>
+                        <span>@touseeqijazweb</span>
+                    </div>
+                </div>
+                <!-------reviews-->
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i><!---------emptystar-->
+                </div>
+            </div>
+            <!----comments-->
+            <div class="client-comment">
+                <p>Very comfortable and fulfilling experience must-try guys, you will think that it was expensive for booking but for sure after the experience, it wasn't. This company provides with door to door pickup as per your location with extra charges with was valuable because if you go on your own it would be more expensive... I opt for this it was easily processed. 
+                    I am so happy in which I covered all the main places and go whatever I wanted too.</p>
+            </div>
+            </div>
+
+
+            <div class="testimonial-box">
+                <!----top-->
+                <div class="box-top">
+                    <!---profile-->
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO87S6N3Xci32_JiUITIJ9m2vaiPyxoqMTgkmlUsnUFV7TW11innFCy0RjRNAPq0fPw8ii2govbIyaEdkN6f2X6feCc6Jn_9ECP5wwfDpgtHlKF9gCMihZ2kUFcNDe8o0UHiITpCJmsrXYvArPTRr7XbV73S2AkWZF1Wa-_yPPxSytXY40RDiwMk1SpIg/s320/must.jpg" alt="">
+                        </div>
+                        <!------name-and-username-->
+                        <div class="name-user">
+                            <strong>Toueq jaz</strong>
+                            <span>@tousejazweb</span>
+                        </div>
+                    </div>
+                    <!-------reviews-->
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i><!---------emptystar-->
+                    </div>
+                </div>
+                <!----comments-->
+                <div class="client-comment">
+                    <p>Very comfortable and fulfilling experience must-try guys, you will think that it was expensive for booking but for sure after the experience, it wasn't. This company provides with door to door pickup as per your location with extra charges with was valuable because if you go on your own it would be more expensive... I opt for this it was easily processed. 
+                        I am so happy in which I covered all the main places and go whatever I wanted too.</p>
+                </div>
+                </div>
+
+                <div class="testimonial-box">
+                    <!----top-->
+                    <div class="box-top">
+                        <!---profile-->
+                        <div class="profile">
+                            <div class="profile-img">
+                                <img src="https://wallpapercave.com/wp/wp3582940.jpg" alt="">
+                            </div>
+                            <!------name-and-username-->
+                            <div class="name-user">
+                                <strong>Touseeq Ijaz</strong>
+                                <span>@touseeqijazweb</span>
+                            </div>
+                        </div>
+                        <!-------reviews-->
+                        <div class="reviews">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><!---------emptystar-->
+                        </div>
+                    </div>
+                    <!----comments-->
+                    <div class="client-comment">
+                        <p>Very comfortable and fulfilling experience must-try guys, you will think that it was expensive for booking but for sure after the experience, it wasn't. This company provides with door to door pickup as per your location with extra charges with was valuable because if you go on your own it would be more expensive... I opt for this it was easily processed. 
+                            I am so happy in which I covered all the main places and go whatever I wanted too.</p>
+                    </div>
+                    </div>
+
+
+                    <div class="testimonial-box">
+                        <!----top-->
+                        <div class="box-top">
+                            <!---profile-->
+                            <div class="profile">
+                                <div class="profile-img">
+                                    <img src="https://editorial.pxcrush.net/carsales/general/editorial/2023-chevrolet-camaro-ss-021.jpg?width=1024&height=683" alt="">
+                                </div>
+                                <!------name-and-username-->
+                                <div class="name-user">
+                                    <strong>Touseeq Ijaz</strong>
+                                    <span>@touseeqijazweb</span>
+                                </div>
+                            </div>
+                            <!-------reviews-->
+                            <div class="reviews">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i><!---------emptystar-->
+                            </div>
+                        </div>
+                        <!----comments-->
+                        <div class="client-comment">
+                            <p>Very comfortable and fulfilling experience must-try guys, you will think that it was expensive for booking but for sure after the experience, it wasn't. This company provides with door to door pickup as per your location with extra charges with was valuable because if you go on your own it would be more expensive... I opt for this it was easily processed. 
+                                I am so happy in which I covered all the main places and go whatever I wanted too.</p>
+                        </div>
+                        </div>
+                    </div>
+</section>
+</div>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;Related Images</h4>
+<div class="card-container">
+<a href="bikes.html"><img class="card" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLZJbOO4IDNJCcu1zbxXdHUX-kCF1TBeaQAEfuhuHnt0hwv2wDVi8RZcYMA5GPUZll14lRlG0Dw75-QQt1gNg-8Z3LpJQbIVpr1kFi6e_1jcMyNltRmTAXOoubK0pfZsUAwIBFCkAIV9tuDrdWt6MK_wx2mFUmlhRExEB4R2ehNrBBIRqKI_Et5WNpXLU/s320/harly.jpg" alt="no img">
+</a></div>
+<div class="card-container">
+<a href="cars.html"><img class="card" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO87S6N3Xci32_JiUITIJ9m2vaiPyxoqMTgkmlUsnUFV7TW11innFCy0RjRNAPq0fPw8ii2govbIyaEdkN6f2X6feCc6Jn_9ECP5wwfDpgtHlKF9gCMihZ2kUFcNDe8o0UHiITpCJmsrXYvArPTRr7XbV73S2AkWZF1Wa-_yPPxSytXY40RDiwMk1SpIg/s320/must.jpg" alt="no img">
+</a></div>
+<div class="card-container">
+    <a href="bikes.html"><img class="card" src="https://wallpapercave.com/wp/wp3582940.jpg" alt="no img">
+    </a></div>
+    <div class="card-container">
+        <a href="cars.html"> <img class="card" src="https://editorial.pxcrush.net/carsales/general/editorial/2023-chevrolet-camaro-ss-021.jpg?width=1024&height=683" alt="no img">
+        </a></div><br><br><br>
+        <hr>
+<div class="footer">
+<div class="side">
+<h2><b style="padding-left: 10px;">MODERN MOTO</b></h2><br>
+<h1 style="padding-left: 30px; font-size: 60px"> Let’s make <br> mobility simple</h1>
+ <h3 style="padding-left: 30px; font-size: 30px">Sign Up for an early access</h3>
+    <h3 style="padding-left: 30px; font-size: 30px">Connect with us!</h3><br><br>
+ <ul class="social-media-list" style="margin-top:5px;">
+        <li><a href="#" target="_blank" class="contact-icon1">
+          <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="#" target="_blank" class="contact-icon2">
+          <i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="#" target="_blank" class="contact-icon3">
+          <i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="#" target="_blank" class="contact-icon4">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </li>       
+      </ul>
+</div>
+<div class="matter">
+<h1 style="font-size: 25px;">Join Modern Moto and be a part of an upcoming rental vehicle revolution!</h1>
+<br><br><br><br>
+ <div class="contact-wrapper">
+    <form action="" class="format-left"method="post" role="form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+<center>        <button type="submit">Submit</button>
+</center><br><br><br><br><br><br>
+    </form>
+</div>
+</div>
+    
+</body>
+</html>

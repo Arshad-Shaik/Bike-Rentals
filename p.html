@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="shortcut icon" href="logo.png">
+
+    <style>
+        body{
+            background-image: url(https://wallpapercave.com/wp/wp7902970.jpg);
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            color: white;
+        }
+        form{
+        padding-left: 400px;
+        }
+        button{
+            width: 320px;
+            height: 30px;
+            background-color: violet;
+            border-radius: 10px;
+            color: white;
+        }
+        button:hover{
+            background-color: violet;
+            box-shadow:  0 0 15px violet, 0 0 25px violet, 0 0 35px purple;
+            border: white;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<center><h1>BIKE/CAB BOOKING FORM</h1></center>
+<center><h3>To reserve the ride. Please complete and submit the booking form.</h3></center>
+<br><br>
+
+<form action="http://127.0.0.1:5000/p" method="POST" name="f" onsubmit="return validateForm()">
+    Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" placeholder="Enter Name" required><br><br>
+    Phone Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="phone" placeholder="Enter Your Mobile Number" required><br><br>
+    Pickup Location :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="up" placeholder="Enter Pickup Location" required><br><br>
+    Drop Location : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="droplocation" placeholder="Enter Drop Location" required><br><br>
+    Bargain : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="bargain" placeholder="Enter Your Amount" required><br><br>
+    Pickup Time : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="picktime" placeholder="Enter Your Pickup Time" required><br><br>
+    <button type="submit" onclick="validate()">Submit</button><br><br>
+</form>
+<script type="text/javascript">
+    function validateForm(){
+        let name = document.forms['f']['name'].value;
+        let phone = document.forms['f']['phone'].value;
+        let pickuplocation = document.forms['f']['pickup'].value;
+        let droplocation = document.forms['f']['drop'].value;
+        let pickuptime = document.forms['f']['pick'].value;
+        let bargain = document.forms['f']['bargain'].value;
+
+        if(name == ""){
+            alert("Please enter your full name");
+            return false;
+        }
+
+        if(phone == ""){
+            alert("Please enter a valid mobile number");
+            return false;
+        }
+
+        if(pickuplocation == ""){
+            alert("Please select a pick up location from the list");
+            return false;
+        }
+        if(droplocation == ""){
+            alert("Please select a drop off location from the list");
+            return false;
+        }
+
+        if(bargain == ""){
+            alert("Enter your Amount");
+            return false;
+        }
+        if(pickuplocation == ""){
+            alert("Enter your Pickup Location");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
